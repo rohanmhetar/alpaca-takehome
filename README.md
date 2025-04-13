@@ -48,8 +48,6 @@ https://github.com/user-attachments/assets/2c418bd9-0311-433a-bb05-76d3e1e22223
 
 - **Next.js**: Used for its server-side rendering capabilities and modern React features.
 - **Tailwind CSS**: Chosen for rapid UI development with consistent styling.
-- **Responsive Design**: The application works well on both desktop and mobile devices.
-- **Two-Column Layout**: Form inputs on one side and schedule display on the other for desktop, stacked for mobile.
 
 ## Assumptions
 
