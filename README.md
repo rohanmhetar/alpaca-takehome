@@ -56,15 +56,6 @@ This application optimizes the scheduling of ABA clinic appointments by matching
 - Days of the week are represented as integers (1-5 for Monday-Friday).
 - Times are represented in 24-hour format (HH:MM).
 
-## Future Enhancements
-
-- Add integration with mapping APIs for real-time travel time estimates
-- Implement more sophisticated optimization algorithms (e.g., constraint programming)
-- Add ability to save and load schedules
-- Support for multiple clinicians and resource allocation
-- Calendar integration (Google Calendar, Outlook, etc.)
-- Notification system for clients and clinicians
-
 ## Setup Instructions
 
 ### Backend Setup (Python 3.11+ required)
