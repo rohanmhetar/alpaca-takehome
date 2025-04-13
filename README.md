@@ -5,7 +5,11 @@
 This application optimizes the scheduling of ABA clinic appointments by matching clients with clinicians based on availability and minimizing travel time. It provides an efficient way to maximize a clinician's working hours while respecting scheduling constraints.
 
 
-https://github.com/user-attachments/assets/2c418bd9-0311-433a-bb05-76d3e1e22223
+
+
+
+https://github.com/user-attachments/assets/f427a45e-ff86-45b5-b885-09158abc7ce2
+
 
 
 
