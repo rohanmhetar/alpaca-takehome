@@ -10,6 +10,7 @@ interface ScheduleDisplayProps {
 export default function ScheduleDisplay({ schedule }: ScheduleDisplayProps) {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
   const [showDetailedView, setShowDetailedView] = useState(false);
+  const [selectedClient, setSelectedClient] = useState<string>('all');
   
   if (schedule.length === 0) {
     return (
@@ -52,10 +53,18 @@ export default function ScheduleDisplay({ schedule }: ScheduleDisplayProps) {
 
   const selectedOption = scheduleOptions[selectedOptionIndex];
   
+  // Get all unique clients across all schedule options
+  const allClients = [...new Set(scheduleOptions.flatMap(option => option.clients))];
+  
+  // Filter schedule based on selected client
+  const filteredSchedule = selectedClient === 'all' 
+    ? selectedOption.schedule 
+    : selectedOption.schedule.filter(entry => entry.client_name === selectedClient);
+  
   // Group schedule entries by day
   const scheduleByDay: { [key: number]: ScheduleEntry[] } = {};
   
-  selectedOption.schedule.forEach(entry => {
+  filteredSchedule.forEach(entry => {
     if (!scheduleByDay[entry.day]) {
       scheduleByDay[entry.day] = [];
     }
@@ -155,8 +164,28 @@ export default function ScheduleDisplay({ schedule }: ScheduleDisplayProps) {
               <h3 className="text-xl font-bold">
                 {selectedOption.title} Details
               </h3>
-              <div className="text-sm text-gray-600">
-                {selectedOption.totalHours} hours total • {formatDriveTime(selectedOption.totalDriveTime)} drive time
+              <div className="flex items-center space-x-4">
+                <div>
+                  <label htmlFor="client-filter" className="text-sm font-medium text-gray-600 mr-2">
+                    Filter by client:
+                  </label>
+                  <select 
+                    id="client-filter"
+                    value={selectedClient}
+                    onChange={(e) => setSelectedClient(e.target.value)}
+                    className="rounded-md border-gray-300 py-1 pr-8 pl-3 text-sm"
+                  >
+                    <option value="all">All Clients</option>
+                    {allClients.map(client => (
+                      <option key={client} value={client}>
+                        {client}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="text-sm text-gray-600">
+                  {selectedOption.totalHours} hours total • {formatDriveTime(selectedOption.totalDriveTime)} drive time
+                </div>
               </div>
             </div>
           </div>
