@@ -4,6 +4,12 @@
 
 This application optimizes the scheduling of ABA clinic appointments by matching clients with clinicians based on availability and minimizing travel time. It provides an efficient way to maximize a clinician's working hours while respecting scheduling constraints.
 
+
+https://github.com/user-attachments/assets/2c418bd9-0311-433a-bb05-76d3e1e22223
+
+
+
+
 ## Key Features
 
 - Algorithm that optimizes clinician schedules based on client availabilities
@@ -42,8 +48,6 @@ This application optimizes the scheduling of ABA clinic appointments by matching
 
 - **Next.js**: Used for its server-side rendering capabilities and modern React features.
 - **Tailwind CSS**: Chosen for rapid UI development with consistent styling.
-- **Responsive Design**: The application works well on both desktop and mobile devices.
-- **Two-Column Layout**: Form inputs on one side and schedule display on the other for desktop, stacked for mobile.
 
 ## Assumptions
 
@@ -51,19 +55,10 @@ This application optimizes the scheduling of ABA clinic appointments by matching
 - Each client can only be scheduled once per week in this MVP.
 - Clinicians have consistent weekly schedules.
 - Drive times are symmetric (time from A to B equals time from B to A).
-- Clinicians need to travel back home after each appointment.
+- Clinicians do not need to travel back home after each appointment.
 - The app is for a single clinician's schedule at a time.
 - Days of the week are represented as integers (1-5 for Monday-Friday).
 - Times are represented in 24-hour format (HH:MM).
-
-## Future Enhancements
-
-- Add integration with mapping APIs for real-time travel time estimates
-- Implement more sophisticated optimization algorithms (e.g., constraint programming)
-- Add ability to save and load schedules
-- Support for multiple clinicians and resource allocation
-- Calendar integration (Google Calendar, Outlook, etc.)
-- Notification system for clients and clinicians
 
 ## Setup Instructions
 
