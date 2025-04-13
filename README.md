@@ -55,7 +55,7 @@ https://github.com/user-attachments/assets/2c418bd9-0311-433a-bb05-76d3e1e22223
 - Each client can only be scheduled once per week in this MVP.
 - Clinicians have consistent weekly schedules.
 - Drive times are symmetric (time from A to B equals time from B to A).
-- Clinicians need to travel back home after each appointment.
+- Clinicians do not need to travel back home after each appointment.
 - The app is for a single clinician's schedule at a time.
 - Days of the week are represented as integers (1-5 for Monday-Friday).
 - Times are represented in 24-hour format (HH:MM).
