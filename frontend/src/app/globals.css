@@ -3,19 +3,54 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 246, 248, 250;
+  --background-end-rgb: 255, 255, 255;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Custom styles for schedule display */
+.min-w-max {
+  min-width: max-content;
+}
+
+/* Fix Tailwind form elements */
+input, select {
+  @apply border-gray-300 rounded-md shadow-sm;
+}
+
+/* Ensure radio buttons appear correctly */
+input[type="radio"] {
+  @apply w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500;
+}
+
+/* Schedule calendar styles */
+.schedule-day {
+  @apply min-w-[200px] bg-white;
+}
+
+.schedule-appointment {
+  @apply p-4 border-b last:border-b-0;
+}
+
+/* Tooltip styles */
+.tooltip {
+  @apply relative inline-block;
+}
+
+.tooltip .tooltip-text {
+  @apply invisible absolute z-10 w-40 bg-gray-900 text-white text-center rounded p-2 opacity-0 transition-opacity duration-300 -mt-2 -ml-20 left-1/2 bottom-full;
+}
+
+.tooltip:hover .tooltip-text {
+  @apply visible opacity-100;
 }

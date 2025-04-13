@@ -1,15 +1,78 @@
-# Alpaca Health Software Engineering Take-Home Project
+# Alpaca Health ABA Clinic Scheduling Optimizer
 
-### Project Description
+## Project Overview
 
-Visit this link for details:
-[https://harviio.notion.site/Alpaca-Health-Eng-Take-home-Project-1411bfc50b90803382d4cae01f9bcf18?pvs=4](https://www.notion.so/harviio/ABA-Session-Note-Generator-Take-Home-Project-1411bfc50b90803382d4cae01f9bcf18?pvs=4)
+This application optimizes the scheduling of ABA clinic appointments by matching clients with clinicians based on availability and minimizing travel time. It provides an efficient way to maximize a clinician's working hours while respecting scheduling constraints.
+
+## Key Features
+
+- Algorithm that optimizes clinician schedules based on client availabilities
+- Consideration of drive times between locations
+- User-friendly interface for clinicians to input their information
+- Visual display of optimized weekly schedules
+- Backend API for schedule optimization
+
+## Approach and Challenges
+
+### Approach
+
+1. **Data Modeling**: I created clear data models representing clients, clinicians, availabilities, and schedules.
+2. **Scheduling Algorithm**: I implemented a greedy algorithm that maximizes clinician working hours while ensuring:
+   - No overlapping appointments
+   - Consideration of travel time between appointments
+   - Respect for client and clinician availabilities
+3. **Frontend Development**: I built a clean, responsive UI that allows clinicians to input their information and view their optimized schedule.
+4. **Testing**: I tested the algorithm with various inputs to ensure it produces valid schedules.
+
+### Challenges
+
+- **Time Management**: Given the 5-hour time constraint, I had to make strategic decisions about which features to prioritize.
+- **Algorithm Complexity**: Balancing between a sophisticated optimization algorithm and a simpler, more maintainable solution.
+- **Drive Time Consideration**: Incorporating drive times between appointments added complexity to the scheduling logic.
+
+## Design Decisions
+
+### Backend
+
+- **FastAPI Framework**: Chosen for its performance, ease of use, and built-in validation.
+- **Greedy Algorithm**: I opted for a greedy scheduling approach as it provides good results for this type of problem without excessive complexity.
+- **Drive Time Matrix**: Used a pre-defined city-to-city travel time matrix for simplicity, though a real implementation would use a mapping API.
+
+### Frontend
+
+- **Next.js**: Used for its server-side rendering capabilities and modern React features.
+- **Tailwind CSS**: Chosen for rapid UI development with consistent styling.
+- **Responsive Design**: The application works well on both desktop and mobile devices.
+- **Two-Column Layout**: Form inputs on one side and schedule display on the other for desktop, stacked for mobile.
+
+## Assumptions
+
+- Appointments are of fixed duration (2 hours by default, configurable).
+- Each client can only be scheduled once per week in this MVP.
+- Clinicians have consistent weekly schedules.
+- Drive times are symmetric (time from A to B equals time from B to A).
+- Clinicians need to travel back home after each appointment.
+- The app is for a single clinician's schedule at a time.
+- Days of the week are represented as integers (1-5 for Monday-Friday).
+- Times are represented in 24-hour format (HH:MM).
+
+## Future Enhancements
+
+- Add integration with mapping APIs for real-time travel time estimates
+- Implement more sophisticated optimization algorithms (e.g., constraint programming)
+- Add ability to save and load schedules
+- Support for multiple clinicians and resource allocation
+- Calendar integration (Google Calendar, Outlook, etc.)
+- Notification system for clients and clinicians
 
 ## Setup Instructions
 
 ### Backend Setup (Python 3.11+ required)
 
 ```bash
+# Navigate to backend directory
+cd backend
+
 # Create and activate virtual environment
 python -m venv alpaca_venv
 source alpaca_venv/bin/activate  # or `venv\Scripts\activate` on Windows
@@ -18,7 +81,7 @@ source alpaca_venv/bin/activate  # or `venv\Scripts\activate` on Windows
 pip install -r requirements.txt
 
 # Start the server
-fastapi dev main.py
+uvicorn main:app --reload
 ```
 
 ### Frontend Setup (Node.js 18+ required)
@@ -77,3 +140,11 @@ The application will be available at:
 | Craft and Quality | - Usable and intuitive UI/UX<br>- Presence and severity of bugs | 20% |
 | Documentation | - Clear communication of logic and technical decisions in README | 10% |
 | Testing | - Presence of tests<br>- Quality and robustness of tests | 10% |
+
+## Sources
+
+- FastAPI Documentation: https://fastapi.tiangolo.com/
+- Next.js Documentation: https://nextjs.org/docs
+- Tailwind CSS Documentation: https://tailwindcss.com/docs
+- React Documentation: https://reactjs.org/docs
+- "Introduction to Algorithms" by Cormen, Leiserson, Rivest, and Stein (for algorithm inspiration)
